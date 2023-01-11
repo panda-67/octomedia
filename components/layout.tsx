@@ -7,12 +7,12 @@ type Props = {
   children: ReactNode,
 }
 
-export default function Layout({ title, description, children }: Props) {
+export default function Layout({ title, children }: Props) {
   return (
     <div>
       <Head>
         <title>{title} | Octomedia</title>
-        <meta name="description" content={`Halaman layout ${description}`} />
+        <meta name="description" content="Octomedia" />
       </Head>
       <h1>{title}</h1>
       {children}
