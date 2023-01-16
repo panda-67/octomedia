@@ -7,7 +7,7 @@ import { NextPageWithLayout } from './_app'
 export default function About({ }: NextPageWithLayout) {
   return (
     <div>
-      Back to <Link href="/">Home</Link>
+      About Octomedia
     </div>
   )
 }
@@ -19,7 +19,7 @@ About.getLayout = function getLayout(page: ReactElement) {
         <meta name="description" content="About" key="" />
       </Head>
       <Layout title="About">
-        {page}
+        <div className='py-16 px-12'>{page}</div>
       </Layout>
     </>
   )
