@@ -10,16 +10,15 @@ type Props = {
 }
 
 export default function Layout({ title, children }: Props) {
-  const router = useRouter()
-  const home = router.pathname
+  const router = useRouter().pathname
   return (
     <>
       <Head>
         <title>{title} | Octomedia</title>
         <meta name="description" content="Octomedia" />
       </Head>
-      <Navbar desain={home === '/' ? 'bg-transparent text-gray-100 relative z-30' : ''} />
-      <div className={`${home === '/' ? 'absolute' : ''} top-0`}>
+      <Navbar desain={router === '/' ? 'bg-transparent text-gray-100 relative z-30' : ''} />
+      <div className={`${router === '/' ? 'absolute' : ''} top-0`}>
         {children}
       </div>
     </>

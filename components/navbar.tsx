@@ -1,13 +1,12 @@
-import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
-import Logo from '/public/img/logo.jpg'
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react"
 
 export default function Navbar({ desain }: { desain: string }) {
+   const routes = useRouter().asPath
    const [navbarOpen, setNavbarOpen] = useState(false)
-   const handleToggle = () => {
-      setNavbarOpen(!navbarOpen)
-   }
+   const handleToggle = () => {setNavbarOpen(!navbarOpen)}
+   useEffect(() => setNavbarOpen(false), [routes])
 
    return (
       <div className={`navbar px-6 ${desain}`}>
@@ -16,7 +15,7 @@ export default function Navbar({ desain }: { desain: string }) {
                <label className="btn btn-sm btn-ghost btn-square" onClick={handleToggle}>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
                </label>
-               <ul className={`${navbarOpen ? '-translate-x-2 duration-300 ease-out' : '-translate-x-28 duration-[400ms] ease-in'} menu menu-compact absolute z-50 left-2 mt-1 py-2 px-1 shadow rounded-box w-max`}>
+               <ul className={`${navbarOpen ? '-translate-x-2 duration-300 ease-out' : '-translate-x-28 duration-300 ease-in'} menu menu-compact absolute z-50 left-2 mt-1 py-2 px-1 shadow rounded-box w-max`}>
                   <li><Link href="/">Home</Link></li>
                   <li><Link href="/about">About</Link></li>
                </ul>

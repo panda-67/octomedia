@@ -5,6 +5,9 @@
  **/
 const nextConfig = {
   basePath: '/octomedia',
+  images: {
+    unoptimized: true
+  }
 }
 
 module.exports = nextConfig
