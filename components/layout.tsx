@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { ReactNode } from 'react'
+import Footer from './footer'
 import Navbar from './navbar'
 
 type Props = {
@@ -14,13 +15,14 @@ export default function Layout({ title, children }: Props) {
   return (
     <>
       <Head>
-        <title>{title} | Octomedia</title>
-        <meta name="description" content="Octomedia" />
+        <title>{title} | Rampagoe Aerial</title>
+        <meta name="description" content="Rampagoe Aerial" />
       </Head>
       <Navbar desain={router === '/' ? 'bg-transparent text-gray-100 relative z-30' : ''} />
-      <div className={`${router === '/' ? 'absolute' : ''} top-0`}>
+      <div className={`${router === '/' ? '-mt-[83px]' : ''} top-0`}>
         {children}
       </div>
+      <div className=''><Footer /></div>
     </>
   )
 }
